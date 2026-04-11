@@ -2,12 +2,12 @@
 
 > 基于十三轮「评估-迭代-修正」实战闭环提炼\
 > **版本 2.1** · 覆盖九大风格分支 · 十三首完整词作 · 462分天花板《天桥》\
-> **NEW: 已封装为 [Accio Work](https://accio.fun) Agent Skill，可交互使用**
+> **NEW: 已封装为可交互 AI Skill，支持 ChatGPT / Claude / Cursor / Accio Work 等任意 AI 平台**
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Made with Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](https://www.markdownguide.org/)
 [![Suno AI Ready](https://img.shields.io/badge/Suno-AI%20Ready-orange)](https://suno.ai)
-[![Accio Skill](https://img.shields.io/badge/Accio-Skill%20Ready-blueviolet)](https://accio.fun)
+[![AI Skill Ready](https://img.shields.io/badge/AI%20Skill-Ready-blueviolet)](#-快速开始作为-ai-skill-使用)
 
 **维护者**：Peter.Pan\
 **协作**：人类 × AI（十三轮评估-迭代-修正）\
@@ -24,17 +24,44 @@
 | 方式 | 说明 |
 |------|------|
 | **📚 作为手册阅读** | 直接阅读本 README，学习评分体系、风格分支、创作流程 |
-| **🤖 作为 AI Skill 交互使用** | 安装到 [Accio Work](https://accio.fun) Agent，通过对话完成创作、评估、迭代（推荐） |
+| **🤖 作为 AI Skill 使用** | 将 `skill/` 目录喂给任意 AI，通过对话完成创作、评估、迭代（推荐） |
 
 ---
 
 ## 🚀 快速开始：作为 AI Skill 使用
 
-### 安装
+### 适用平台
 
-1. 在 [Accio Work](https://accio.fun) 中打开你的 Agent
-2. 进入 Skills 设置，将 `skill/` 目录下的文件安装为 Skill
-3. 安装后，直接在对话中触发即可
+本 Skill 基于 pure Markdown 编写，**不依赖任何特定平台 API**，可用于所有支持自定义 Prompt / Knowledge Base 的 AI 工具：
+
+| 平台 | 使用方式 |
+|------|----------|
+| **ChatGPT** | 创建 GPT → 将 `skill/` 下所有 `.md` 文件上传到 Knowledge |
+| **Claude Projects** | 创建 Project → 将 `.md` 文件添加为 Project Knowledge |
+| **Cursor / Windsurf** | 将 `skill/` 目录放入项目，作为 `.cursorrules` 或上下文引用 |
+| **Accio Work** | Agent → Skills → 安装 `skill/` 目录 |
+| **其他 AI** | 将 `skill/SKILL.md` 内容粘贴为 System Prompt，按需附加 `references/` 文件 |
+
+### 安装步骤
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/qq547820639/cantopop-lyrics-engineering.git
+
+# 2. Skill 文件在 skill/ 目录下
+ls skill/
+# SKILL.md                    ← 主文件（工作流 + 核心法则）
+# references/scoring-system.md ← 十四维度 + 数学模型
+# references/style-branches.md ← 九大风格 + Style Prompt
+# references/advanced-rules.md ← 高阶法则
+# references/suno-guide.md     ← Suno 生成技巧
+# references/case-studies.md   ← 十三首案例
+# references/appendix.md       ← 诊断卡 + 声调表 + 词库
+
+# 3. 按你使用的 AI 平台，将这些文件上传/导入即可
+```
+
+> **Tip**：如果你的 AI 平台有上下文长度限制，优先上传 `SKILL.md`（核心），再按需添加 `references/` 下的文件。
 
 ### 四大交互模式
 
@@ -89,7 +116,7 @@
 ```
 种子（画面+物象+情感落点）
   ↓
-风格选择（九大分支决策树）
+风格选择（九大风格分支决策树）
   ↓
 结构搭建（三段式骨架）
   ↓
@@ -111,15 +138,15 @@
 ```
 cantopop-lyrics-engineering/
 ├── README.md                              ← 你正在读的文件（完整手册）
-└── skill/                                 ← Accio Work Agent Skill
+└── skill/
     ├── SKILL.md                           ← 主文件：四大模式工作流
     └── references/
         ├── scoring-system.md              ← 十四维度评分标准 + 四变量数学模型
         ├── style-branches.md              ← 九大风格分支 + Style Prompt 模板
         ├── advanced-rules.md              ← 高阶法则：寄生三形态、呼吸量、识穿→认领弧线
         ├── suno-guide.md                  ← Suno 元标签速查、黄金公式、常见问题
-        ├── case-studies.md                ← 十三首完整案例（种子→迭代→总分）
-        └── appendix.md                    ← 快速诊断卡、评分卡模板、声调表、词库
+        ├── case-studies.md                ← 十三首案例（种子→迭代→总分）
+        └── appendix.md                    ← 快速诊断卡 + 评分卡模板 + 声调表 + 词库
 ```
 
 ---
@@ -166,5 +193,5 @@ cantopop-lyrics-engineering/
 8. [附录：快速诊断卡与评分表](#附录)
 
 ---
-
 ## 一、十四维度评价体系
+
